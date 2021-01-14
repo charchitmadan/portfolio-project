@@ -1,6 +1,6 @@
+
 <!doctype html>
 <html lang="en">
-
   <head>
     {% load static %}
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.79.0">
-    <title>Charchit Madan</title>
+    <title>{{ blog.title }}</title>
 
 
 
@@ -30,8 +30,8 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
               <a class="nav-link" href="http://twitter.com/charchitmadan">Twitter</a>
-              <a class="nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
-              <a class="nav-link" href="{% url "blog_home" %}">Blog</a>
+              <a class="nav-link" href="{% static "Resume.pdf" %}">Resume</a>
+              <a class="nav-link active active" href="{% url "blog_home" %}">Blog</a>
             </div>
           </div>
         </div>
@@ -39,39 +39,19 @@
     </header>
 
 <main>
+  <div class="container">
 
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Hi, I'm Charchit</h1>
-        <p class="lead text-muted">Hey, i am Charchit and i am making my first django website. God, please help me !!</p>
-        <p>
-          <a href="mailto:charchitshruti@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img src = "{% static "img.jpg" %}" height=200 width=200 />
-      </div>
-    </div>
-  </section>
 
-  <div class="album py-5 bg-light">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        {% for job in jobs.all %}
-        <div class="col">
-          <div class="card shadow-sm">
-            <img class="card-img-top" src="{{ job.image.url }}" />
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
 
-      </div>
-    </div>
+
+        <h1 class="text-center pt-3">{{ blog.title }}</h1>
+        <p class="text-center">{{ blog.pub_date }}</p>
+        <img class="img-fluid" src="{{ blog.image.url }}" />
+        <br />
+        <p>{{ blog.body }}</p>
+
+
   </div>
-
-
 </main>
 
 <footer class="text-muted py-5">
